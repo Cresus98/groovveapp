@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="58" height="59" fill="none" xmlns:v="https://vecta.io/nano">
+    <defs>
+        <filter id="A" x=".162" y=".471" width="57.677" height="57.677" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="A" />
+            <feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="B" />
+            <feOffset dy="0.961282" />
+            <feGaussianBlur stdDeviation="2.403" />
+            <feComposite in2="B" operator="out" />
+            <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+            <feBlend in2="A" />
+            <feBlend in="SourceGraphic" />
+        </filter>
+        <radialGradient id="B" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(19.3872 8.16104) rotate(62.3789) scale(46.6519)">
+            <stop offset=".241" stop-color="#79797b" />
+            <stop offset="1" stop-color="#252525" />
+        </radialGradient>
+    </defs>
+    <g filter="url(#A)">
+        <circle cx="29" cy="28.348" r="24.032" fill="url(#B)" />
+    </g>
+    <g stroke="#fff" stroke-width="2.884" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M29 21.138v14.419" />
+        <path d="M21.79 28.348H36.21" />
+    </g>
+</svg>

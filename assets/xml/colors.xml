@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <color name="primarySwatch" type="material">#FAA500</color>
+    <color name="sonicSilver">#79797B</color>
+    <color name="raisinBlack">#252525</color>
+    <color name="webOrange">#FAA500</color>
+
+</resources>
