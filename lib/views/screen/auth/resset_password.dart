@@ -1,11 +1,17 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:groovvee/views/appwidgets/common/app_scaffold.dart';
+import 'package:groovvee/views/appwidgets/common/big_button.dart';
 import 'package:groovvee/views/core/extensions.dart';
 import 'package:groovvee/views/screen/auth/auth_text_form_field.dart';
+import 'package:groovvee/views/screen/auth/verification.dart';
 import 'package:groovvee/views/utils/app_const.dart';
 import 'package:groovvee/views/utils/app_widget.dart';
-import 'package:groovvee/views/utils/widgets/common/app_scaffold.dart';
+
 import 'package:groovvee/views/utils/widgets/common/buttons.dart';
+
 
 import '../../../constantes.dart';
 import '../../utils/widgets/common/widget_bar.dart';
@@ -25,7 +31,7 @@ class _SignInScreenState extends ConsumerState<ResetPasswordScreen> {
 
   //late final _localizations = context.l10n;
 
-  late var _isFormValid = false;
+  late var _isFormValid = true;
 
   @override
   void initState() {
@@ -51,7 +57,7 @@ class _SignInScreenState extends ConsumerState<ResetPasswordScreen> {
           padding: EdgeInsets.all(context.dx(56.0)),
           child: Form(
             key: _formKey,
-            onChanged: _onFormChanged,
+            //onChanged: _onFormChanged,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -75,14 +81,27 @@ class _SignInScreenState extends ConsumerState<ResetPasswordScreen> {
                 ),
                 const Space.vertical(48.0),
                 AuthTextFormField(
-                  labelText: AppString.emailAddress,
+                  preffixIcon:const  Icon(Icons.person),
+                  labelText: AppString.enternameEmail,
                   keyboardType: TextInputType.emailAddress,
-                  // initialValue: emailAddress,
-                  // validator: (value) {
-                  //   auth.update(emailAddress: value!.trim());
-                  //   return value.trim().isValidEmailAddress ? null : '';
-                  // },
+                  //textInputAction: TextInputAction.done,
+                  //initialValue: emailAddress,
+                  validator: (value) {
+                    // auth.update(emailAddress: value!.trim());
+                    //return value.trim().isValidEmailAddress ? null : '';
+                  },
                 ),
+
+
+                // AuthTextFormField(
+                //   labelText: AppString.emailAddress,
+                //   keyboardType: TextInputType.emailAddress,
+                //   // initialValue: emailAddress,
+                //   // validator: (value) {
+                //   //   auth.update(emailAddress: value!.trim());
+                //   //   return value.trim().isValidEmailAddress ? null : '';
+                //   // },
+                // ),
                 const Space.vertical(48.0),
                 BigButton(
                   //isBusy: isResettingPassword,
@@ -99,10 +118,14 @@ class _SignInScreenState extends ConsumerState<ResetPasswordScreen> {
   }
 
   void _onFormChanged() {
-    setState(() => _isFormValid = _formKey.currentState!.validate());
+
+
+    //setState(() => _isFormValid = _formKey.currentState!.validate());
   }
 
   void _onSubmit() {
     context.unfocus();
+print("ojj");
+    context.goNamed(VerificationScreen.routeName);
   }
 }

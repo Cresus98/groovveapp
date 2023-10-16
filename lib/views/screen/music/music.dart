@@ -4,13 +4,15 @@ import 'package:go_router/go_router.dart';
 
 
 import 'package:groovvee/constantes.dart';
+import 'package:groovvee/views/appwidgets/common/app_scaffold.dart';
+import 'package:groovvee/views/appwidgets/common/clickable.dart';
 import 'package:groovvee/views/core/extensions.dart';
 import 'package:groovvee/views/screen/music/music_search.dart';
 import 'package:groovvee/views/utils/app_const.dart';
 import 'package:groovvee/views/utils/widgets/appHomeCard.dart';
-import 'package:groovvee/views/utils/widgets/common/app_scaffold.dart';
-import 'package:groovvee/views/utils/widgets/common/buttons.dart';
+
 import 'package:groovvee/views/utils/widgets/common/widget_bar.dart';
+
 
 import '../../utils/app_color.dart';
 import '../../utils/widgets/common/designpath.dart';

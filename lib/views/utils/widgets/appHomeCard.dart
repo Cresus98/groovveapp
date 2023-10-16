@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:groovvee/views/appwidgets/common/big_button.dart';
+import 'package:groovvee/views/appwidgets/common/clickable.dart';
 import 'package:groovvee/views/core/extensions.dart';
 import 'package:groovvee/views/utils/app_color.dart';
 import 'package:groovvee/views/utils/app_const.dart';
@@ -8,6 +10,7 @@ import 'package:groovvee/views/utils/fonctions.dart';
 import 'package:groovvee/views/utils/widgets/app_textstyles.dart';
 import 'package:groovvee/views/utils/widgets/common/buttons.dart';
 import 'package:groovvee/views/utils/widgets/common/widget_bar.dart';
+
 
 class HomeCard extends StatelessWidget {
   const HomeCard(

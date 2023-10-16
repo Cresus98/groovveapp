@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
+import 'package:groovvee/controller/initialise.dart';
 import 'package:groovvee/views/core/extensions.dart';
 import 'package:groovvee/views/utils/app_color.dart';
 
@@ -15,11 +16,15 @@ class DarkModeSwitch extends ConsumerWidget {
       value: context.isInDarkMode,
       thumbColor: const MaterialStatePropertyAll(white),
       trackColor: MaterialStatePropertyAll(
-        context.isInDarkMode ? AppColor.webOrange : AppColor.raisinBlack,
+        context.isInDarkMode ?
+        AppColor.webOrange : AppColor.raisinBlack,
+
       ),
       onChanged: (isOn) {
-        // ref.read(isDarkTheme.notifier).
-        // update(themeMode: isOn ? ThemeMode.dark : ThemeMode.light);
+        ref.read(settingsModel.notifier).update(
+          themeMode: isOn? ThemeMode.dark:ThemeMode.light
+        );
+
       },
     );
   }

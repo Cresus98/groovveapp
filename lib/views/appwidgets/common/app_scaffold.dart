@@ -77,7 +77,6 @@ Widget build(BuildContext context,WidgetRef ref) {
       bottomNavigationBar: bottomNavigationBar,
       extendBody: shouldExtendBody ?? false,
       body:
-
       Stack(
         alignment: Alignment.topCenter,
         children: [

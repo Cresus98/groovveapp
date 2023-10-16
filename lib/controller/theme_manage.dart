@@ -15,3 +15,4 @@ final isDarkTheme=StateProvider<bool>((ref)
   jsonDecode(interne_storage.read(getstorageColor))==getblackColor?
   true:false;
 });
+

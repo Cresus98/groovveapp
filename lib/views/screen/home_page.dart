@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:groovvee/controller/theme_manage.dart';
+import 'package:groovvee/views/appwidgets/common/app_scaffold.dart';
+import 'package:groovvee/views/appwidgets/common/clickable.dart';
+import 'package:groovvee/views/appwidgets/common/svg_button.dart';
 import 'package:groovvee/views/core/extensions.dart';
 import 'package:groovvee/views/screen/moovies/movies_screen.dart';
 import 'package:groovvee/views/screen/music/music.dart';
@@ -13,9 +16,9 @@ import 'package:groovvee/views/utils/app_widget.dart';
 import 'package:groovvee/views/utils/fonctions.dart';
 import 'package:groovvee/views/utils/widgets/appHomeCard.dart';
 import 'package:groovvee/views/utils/widgets/app_textstyles.dart';
-import 'package:groovvee/views/utils/widgets/common/app_scaffold.dart';
-import 'package:groovvee/views/utils/widgets/common/buttons.dart';
+
 import 'package:groovvee/views/utils/widgets/common/widget_bar.dart';
+
 
 
 
@@ -56,9 +59,9 @@ class _HomePageState extends ConsumerState<HomePage> {
       switch(index)
       {
         case 0:
-          return MusicHomePage();
+          return const MusicHomePage();
         case 1:
-          return MoviesScreen();
+          return const MoviesScreen();
         default:
           return Container();
       }
@@ -337,6 +340,7 @@ class _HomePageState extends ConsumerState<HomePage> {
     )
     ;
   }
+
 }
 
 

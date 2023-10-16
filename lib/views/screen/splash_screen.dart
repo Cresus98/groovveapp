@@ -6,11 +6,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:groovvee/constantes.dart';
 import 'package:groovvee/controller/theme_manage.dart';
+import 'package:groovvee/views/appwidgets/common/app_scaffold.dart';
 import 'package:groovvee/views/core/extensions.dart';
 import 'package:groovvee/views/screen/auth/sign_in.dart';
+import 'package:groovvee/views/screen/dashboard.dart';
 import 'package:groovvee/views/screen/home_page.dart';
 import 'package:groovvee/views/utils/app_const.dart';
-import 'package:groovvee/views/utils/widgets/common/app_scaffold.dart';
+
 
 import '../../controller/initialise.dart';
 
@@ -22,7 +24,8 @@ class SplashScreen extends ConsumerWidget {
     return
       GauzyScaffold(
         content: Center(
-          child: (context.isInDarkMode
+          child: (
+              context.isInDarkMode
               ? AppAssetsImages.logoDark
               : AppAssetsImages.logo)
               .svg()
@@ -33,11 +36,14 @@ class SplashScreen extends ConsumerWidget {
             curve: Curves.bounceOut,
           )
               .callback(
-            callback: (_) => context.goNamed(
-                //interne_storage.read(getstorageUser)==null
-                  //  ? SignInScreen.routeName
-                   // :
-            HomePage.routeName
+            callback: (_) =>
+
+                context.goNamed(
+                interne_storage.read(accessTokenKey)==null
+                    ? SignInScreen.routeName
+                    :SignInScreen.routeName
+            //HomePage.routeName
+                //DashbaordScreen.routeName
                     // ? HomePage.routeName
                     // : SignInScreen.routeName
             ),

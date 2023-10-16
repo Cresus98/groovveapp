@@ -1,14 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:groovvee/constantes.dart';
+import 'package:groovvee/views/appwidgets/common/app_scaffold.dart';
+import 'package:groovvee/views/appwidgets/common/clickable.dart';
 import 'package:groovvee/views/core/extensions.dart';
 import 'package:groovvee/views/utils/app_color.dart';
 import 'package:groovvee/views/utils/app_const.dart';
 import 'package:groovvee/views/utils/app_widget.dart';
 import 'package:groovvee/views/utils/fonctions.dart';
 import 'package:groovvee/views/utils/widgets/app_textstyles.dart';
-import 'package:groovvee/views/utils/widgets/common/app_scaffold.dart';
-import 'package:groovvee/views/utils/widgets/common/buttons.dart';
+
 
 import '../../utils/widgets/common/widget_bar.dart';
 

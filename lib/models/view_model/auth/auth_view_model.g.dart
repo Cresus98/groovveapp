@@ -1,28 +1,46 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-/*
 part of 'auth_view_model.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$authHash() => r'2d0c406fa88fea77c4d455ad4eb7b3570e9d787e';
+// ignore_for_file: avoid_private_typedef_functions, non_constant_identifier_names, subtype_of_sealed_class, invalid_use_of_internal_member, unused_element, constant_identifier_names, unnecessary_raw_strings, library_private_types_in_public_api
+
+/// Copied from Dart SDK
+class _SystemHash {
+  _SystemHash._();
+
+  static int combine(int hash, int value) {
+    // ignore: parameter_assignments
+    hash = 0x1fffffff & (hash + value);
+    // ignore: parameter_assignments
+    hash = 0x1fffffff & (hash + ((0x0007ffff & hash) << 10));
+    return hash ^ (hash >> 6);
+  }
+
+  static int finish(int hash) {
+    // ignore: parameter_assignments
+    hash = 0x1fffffff & (hash + ((0x03ffffff & hash) << 3));
+    // ignore: parameter_assignments
+    hash = hash ^ (hash >> 11);
+    return 0x1fffffff & (hash + ((0x00003fff & hash) << 15));
+  }
+}
+
+String _$AuthHash() => r'da3ac057d9e656e653b51593445fee23bd81c0c4';
 
 /// See also [Auth].
-@ProviderFor(Auth)
-final authViewModel = AutoDisposeNotifierProvider<Auth, AuthState>.internal(
+final authProvider = AutoDisposeNotifierProvider<Auth, AuthState>(
   Auth.new,
-  name: r'authViewModel',
+  name: r'authProvider',
   debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$authHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
+      const bool.fromEnvironment('dart.vm.product') ? null : _$AuthHash,
 );
+typedef AuthRef = AutoDisposeNotifierProviderRef<AuthState>;
 
-typedef _$Auth = AutoDisposeNotifier<AuthState>;
-// ignore_for_file: unnecessary_raw_strings, subtype_of_sealed_class, invalid_use_of_internal_member, do_not_use_environment, prefer_const_constructors, public_member_api_docs, avoid_private_typedef_functions
-
-
-
-*/
+abstract class _$Auth extends AutoDisposeNotifier<AuthState> {
+  @override
+  AuthState build();
+}

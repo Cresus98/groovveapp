@@ -1,14 +1,27 @@
 import 'dart:async';
 import 'dart:convert';
 
-/*
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:groovvee/controller/initialise.dart';
+import 'package:groovvee/models/backend_model/app_user/app_user.dart';
+import 'package:groovvee/models/testty/try.dart';
+import 'package:groovvee/services/implementations/dio_service.dart';
+import 'package:groovvee/views/core/extensions.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+
+import '../../../views/core/constants.dart';
+import '../../backend_model/country/country.dart';
+
+
+
 part 'auth_view_model.freezed.dart';
 part 'auth_view_model.g.dart';
-
 
 @riverpod
 
 class Auth extends _$Auth {
+
   static const authorizationUrl = '/oauth2/token';
   static const accountsUrl = '/accounts';
 
@@ -16,39 +29,45 @@ class Auth extends _$Auth {
 
   @override
   AuthState build() {
+
+
     512.milliseconds.schedule(_listenForUserUpdates);
-
     ref.onDispose(() => _resendTimer?.cancel());
-
     return AuthState(
-      token: storage.getString(accessTokenKey) ?? '',
+      token:
+      interne_storage.read(accessTokenKey)?? '',
       countries: [...countries.map(Country.fromJson)],
       countryCode: const Country().code,
       currentUser: AppUser.fromJson(
-        jsonDecode(storage.getString(currentUserKey) ?? '{}'),
+        jsonDecode(interne_storage.read(currentUserKey) ?? '{}'),
       ),
+      countrieschose:[],
       isResettingPassword: false,
       isVerifyingCode: false,
       isResendingCode: false,
       isSigningOut: false,
       isSigningIn: false,
       isSigningUp: false,
-      emailAddress: '',
-      firstName: '',
-      lastName: '',
-      password: '',
+      emailAddress: 'attamahcelestine@gmail.com',
+      firstName: 'Celestine',
+      lastName: 'Attamah',
+      password: "dont_API_me@123",
       timeLeft: 0,
       otpCode: '',
     );
+
   }
+
 
   void _listenForUserUpdates() async {
     while (true) {
-      if (storage.has(accessTokenKey)) {}
-
+      if (interne_storage.read(accessTokenKey)!=null) {}
       await 8.seconds.delay;
     }
   }
+
+
+
 
   Future<bool> resendCode() async {
     update(isResendingCode: true);
@@ -62,31 +81,38 @@ class Auth extends _$Auth {
     return didResendCode;
   }
 
-  Future<bool> verifyCode() async {
+  Future<bool> verifyCode() async
+  {
+
     update(isVerifyingCode: true);
-
     final didVerifyCode = await 2.seconds.delay;
-
     update(isVerifyingCode: false);
-
     return didVerifyCode;
+
   }
 
-  Future<bool> signOut() async {
+  /*
+  Future<bool> signOut() async
+  {
     update(isSigningOut: true);
 
-    final didSignOut = await storage.clear();
+    final didSignOut = false;
+    //await storage.clear();
 
     update(isSigningOut: false);
 
     return didSignOut;
   }
+  */
 
-  Future<bool> signIn() async {
+  Future<bool> signIn() async
+  {
     update(isSigningIn: true);
 
-    final didSignIn = await http.dispatch(
-      httpRequest: http.request(
+    final didSignIn = await
+    //http.dispatch(
+    DioService().dispatch(
+      httpRequest: DioService().request(
         requestEndpoint: authorizationUrl,
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
         payload: {
@@ -100,8 +126,8 @@ class Auth extends _$Auth {
         method: 'POST',
       ),
       onPositiveResponse: (response) {
-        storage.setString(refreshTokenKey, jsonEncode(response.refreshToken));
-        storage.setString(accessTokenKey, jsonEncode(response.accessToken));
+        interne_storage.write(refreshTokenKey, jsonEncode(response.refreshToken));
+        interne_storage.write(accessTokenKey, jsonEncode(response.accessToken));
         update(token: response.accessToken);
       },
     );
@@ -111,13 +137,14 @@ class Auth extends _$Auth {
     return didSignIn;
   }
 
-  Future<bool> signUp() async {
+  Future<bool> signUp() async
+  {
     update(isSigningUp: true);
 
-    final didSignUp = await http
+    final didSignUp = await DioService()
         .dispatch(
       onPositiveResponse: (response) => update(token: response.accessToken),
-      httpRequest: http.request(
+      httpRequest: DioService().request(
         requestEndpoint: authorizationUrl,
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
         payload: {
@@ -125,17 +152,15 @@ class Auth extends _$Auth {
           'client_secret': apiClientSecret,
           'client_id': apiClientId,
         },
-        method: 'POST',
-      ),
-    )
-        .then<bool>((didGetToken) {
+        method: 'POST',),
+    ).then<bool>((didGetToken) {
       if (didGetToken) {
-        return http.dispatch(
+        return DioService().dispatch(
           onPositiveResponse: (response) {
-            storage.setString(currentUserKey, jsonEncode(response.data));
+            interne_storage.write(currentUserKey, jsonEncode(response.data));
             update(currentUser: response.data);
           },
-          httpRequest: http.request(
+          httpRequest: DioService().request(
             headers: {'Authorization': 'Bearer ${state.token}'},
             requestEndpoint: accountsUrl,
             payload: {
@@ -158,7 +183,8 @@ class Auth extends _$Auth {
     return didSignUp;
   }
 
-  void _startResendCountdown() {
+  void _startResendCountdown()
+  {
     update(timeLeft: 119);
     _resendTimer?.cancel();
     _resendTimer = Timer.periodic(1000.milliseconds, (timer) {
@@ -178,6 +204,7 @@ class Auth extends _$Auth {
     bool? isResendingCode,
     bool? isResettingPassword,
     List<Country>? countries,
+    List<Country>? countrieschose,
     AppUser? currentUser,
     String? emailAddress,
     String? countryCode,
@@ -187,7 +214,9 @@ class Auth extends _$Auth {
     String? otpCode,
     String? token,
     int? timeLeft,
-  }) {
+    bool? showBar,})
+  {
+
     state = state.copyWith(
       isResettingPassword: isResettingPassword ?? state.isResettingPassword,
       isVerifyingCode: isVerifyingCode ?? state.isVerifyingCode,
@@ -199,6 +228,7 @@ class Auth extends _$Auth {
       currentUser: currentUser ?? state.currentUser,
       countryCode: countryCode ?? state.countryCode,
       countries: countries ?? state.countries,
+      countrieschose:countrieschose?? state.countrieschose,
       firstName: firstName ?? state.firstName,
       lastName: lastName ?? state.lastName,
       password: password ?? state.password,
@@ -207,6 +237,12 @@ class Auth extends _$Auth {
       token: token ?? state.token,
     );
   }
+  
+
+
+
+
+
 }
 
 @freezed
@@ -219,6 +255,7 @@ class AuthState with _$AuthState {
     required bool isResendingCode,
     required bool isResettingPassword,
     required List<Country> countries,
+    required List<Country> countrieschose,
     required AppUser currentUser,
     required String emailAddress,
     required String countryCode,
@@ -230,5 +267,3 @@ class AuthState with _$AuthState {
     required int timeLeft,
   }) = _AuthState;
 }
-
-*/

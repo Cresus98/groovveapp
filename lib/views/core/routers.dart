@@ -2,6 +2,7 @@ import 'package:go_router/go_router.dart';
 import 'package:groovvee/views/screen/auth/sign_in.dart';
 import 'package:groovvee/views/screen/auth/sign_up.dart';
 import 'package:groovvee/views/screen/auth/verification.dart';
+import 'package:groovvee/views/screen/dashboard.dart';
 import 'package:groovvee/views/screen/home_page.dart';
 import 'package:groovvee/views/screen/moovies/movies_screen.dart';
 import 'package:groovvee/views/screen/music/download_music.dart';
@@ -20,6 +21,16 @@ final appRouter = GoRouter(
   routes: [
     GoRoute(builder: (_, __) => const SplashScreen(), path: '/'),
     GoRoute(
+      builder: (_, __) => const SignInScreen(),
+      path: '/${SignInScreen.routeName}',
+      name: SignInScreen.routeName,
+    ),
+    GoRoute(
+      builder: (_, __) => const SignUpScreen(),
+      path: '/${SignUpScreen.routeName}',
+      name: SignUpScreen.routeName,
+    ),
+    GoRoute(
       builder: (_, __) => const ResetPasswordScreen(),
       path: '/${ResetPasswordScreen.routeName}',
       name: ResetPasswordScreen.routeName,
@@ -35,6 +46,11 @@ final appRouter = GoRouter(
       name: HomePage.routeName,
     ),
     GoRoute(
+      builder: (_, __) => const DashbaordScreen(),
+      path: '/${DashbaordScreen.routeName}',
+      name: DashbaordScreen.routeName,
+    ),
+    GoRoute(
       builder: (_, __) => const ProfileScreen(),
       path: '/${ProfileScreen.routeName}',
       name: ProfileScreen.routeName,
@@ -44,16 +60,7 @@ final appRouter = GoRouter(
       path: '/${SettingsScreen.routeName}',
       name: SettingsScreen.routeName,
     ),
-    GoRoute(
-      builder: (_, __) => const SignInScreen(),
-      path: '/${SignInScreen.routeName}',
-      name: SignInScreen.routeName,
-    ),
-    GoRoute(
-      builder: (_, __) => const SignUpScreen(),
-      path: '/${SignUpScreen.routeName}',
-      name: SignUpScreen.routeName,
-    ),
+
     GoRoute(
       builder: (context, state) => const SearchScreen(),
         path: '/${SearchScreen.routeName}',

@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:groovvee/views/core/extensions.dart';
 import 'package:groovvee/views/utils/app_color.dart';
 import 'package:groovvee/views/utils/widgets/app_textstyles.dart';
 
@@ -19,8 +20,11 @@ class AuthTextFormField extends StatelessWidget {
   this.maxLength,
   this.focusNode,
   this.isEnabled,
+  this.readOnly,
   this.validator,
   this.labelText,
+  this.suffixIcon,
+  this.preffixIcon,
   super.key,
 });
 
@@ -36,14 +40,15 @@ final String? labelText;
 final bool? shouldObscureText;
 final bool? isEnabled;
 final int? maxLength;
+final bool? readOnly;
+final Widget? suffixIcon;
+final Widget? preffixIcon;
 
 @override
 Widget build(BuildContext context) {
-
   final textColour =
-
-  interne_storage.read(getstorageColor) == null? AppColor.webOrange:
-  jsonDecode(interne_storage.read(getstorageColor))==getblackColor?AppColor.webOrange : AppColor.raisinBlack;
+  context.isInDarkMode ?
+  AppColor.webOrange : AppColor.webblacktextfield;
 
   final focusedBorder = UnderlineInputBorder(
     borderSide: BorderSide(color: textColour, width: 2.0),
@@ -53,20 +58,27 @@ Widget build(BuildContext context) {
     borderSide: BorderSide(color: textColour, width: 1.0),
   );
 
+  final errorBorder = const UnderlineInputBorder(
+    borderSide: BorderSide(color: Colors.red, width: 1.0),
+  );
+
   return TextFormField(
-    style: AppTextStyles.textstyles_simple.copyWith(fontWeight: FontWeight.bold),
+    style: context.textStyle(fontWeight: FontWeight.bold),
     onEditingComplete: onEditingComplete,
     textInputAction: textInputAction,
+    readOnly: readOnly??false,
     decoration: InputDecoration(
       counter: const SizedBox.shrink(),
-      errorStyle: AppTextStyles.textstyles_simple.copyWith(height: 0.0),
-      labelStyle:AppTextStyles.textstyles_simple.copyWith(fontWeight: FontWeight.w500),
+      errorStyle: context.textStyle(height: 0.0),
+      labelStyle: context.textStyle(fontWeight: FontWeight.w500),
       floatingLabelBehavior: FloatingLabelBehavior.always,
       focusedErrorBorder: focusedBorder,
       focusedBorder: focusedBorder,
       enabledBorder: normalBorder,
-      errorBorder: normalBorder,
+      errorBorder: errorBorder,
       labelText: labelText,
+        suffixIcon: suffixIcon,
+        prefixIcon: preffixIcon
     ),
     enabled: isEnabled ?? true,
     obscureText: shouldObscureText ?? false,

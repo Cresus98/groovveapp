@@ -67,4 +67,6 @@ class AppColor{
 
 
   static Color greyOpac =const  Color(0xFFafb1b5).withOpacity(0.4);
+  static Color webblacktextfield =const  Color(0xFF252525);
+
 }

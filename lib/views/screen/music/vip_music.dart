@@ -4,20 +4,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 import 'package:groovvee/constantes.dart';
+import 'package:groovvee/views/appwidgets/common/app_scaffold.dart';
+import 'package:groovvee/views/appwidgets/common/big_button.dart';
+import 'package:groovvee/views/appwidgets/common/clickable.dart';
 import 'package:groovvee/views/core/extensions.dart';
 import 'package:groovvee/views/screen/music/download_music.dart';
 import 'package:groovvee/views/screen/music/music.dart';
 import 'package:groovvee/views/screen/profile/settings_screen.dart';
 import 'package:groovvee/views/utils/app_color.dart';
 import 'package:groovvee/views/utils/app_const.dart';
-import 'package:groovvee/views/utils/app_widget.dart';
 import 'package:groovvee/views/utils/fonctions.dart';
 import 'package:groovvee/views/utils/widgets/appHomeCard.dart';
 import 'package:groovvee/views/utils/widgets/app_textstyles.dart';
-import 'package:groovvee/views/utils/widgets/common/app_scaffold.dart';
-import 'package:groovvee/views/utils/widgets/common/buttons.dart';
-import 'package:groovvee/views/utils/widgets/common/designpath.dart';
 import 'package:groovvee/views/utils/widgets/common/widget_bar.dart';
+
 
 class VipMusic extends StatefulWidget {
   const VipMusic({Key? key}) : super(key: key);

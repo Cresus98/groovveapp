@@ -1,6 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-/*
 part of 'api_response.dart';
 
 // **************************************************************************
@@ -13,22 +12,20 @@ _$_ApiResponse _$$_ApiResponseFromJson(Map<String, dynamic> json) =>
       data: json['data'] == null
           ? const AppUser()
           : AppUser.fromJson(json['data'] as Map<String, dynamic>),
-      refreshToken: json['refresh_token'] as String? ?? '',
-      accessToken: json['access_token'] as String? ?? '',
-      tokenType: json['token_type'] as String? ?? '',
+      refreshToken: json['refreshToken'] as String? ?? '',
+      accessToken: json['accessToken'] as String? ?? '',
+      tokenType: json['tokenType'] as String? ?? '',
       message: json['message'] as String? ?? '',
-      expiresIn: json['expires_in'] as int? ?? 0,
+      expiresIn: json['expiresIn'] as int? ?? 0,
     );
 
 Map<String, dynamic> _$$_ApiResponseToJson(_$_ApiResponse instance) =>
     <String, dynamic>{
       'error': instance.error,
       'data': instance.data,
-      'refresh_token': instance.refreshToken,
-      'access_token': instance.accessToken,
-      'token_type': instance.tokenType,
+      'refreshToken': instance.refreshToken,
+      'accessToken': instance.accessToken,
+      'tokenType': instance.tokenType,
       'message': instance.message,
-      'expires_in': instance.expiresIn,
+      'expiresIn': instance.expiresIn,
     };
-
-*/

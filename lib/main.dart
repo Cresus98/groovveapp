@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:groovvee/constantes.dart';
+import 'package:groovvee/controller/providers/setting_provider.dart';
 import 'package:groovvee/controller/theme_manage.dart';
 import 'package:groovvee/models/view_model/settings/setting.dart';
 import 'package:groovvee/views/core/routers.dart';
@@ -11,6 +12,8 @@ import 'package:groovvee/views/screen/music/vip_music.dart';
 import 'package:groovvee/views/utils/app_const.dart';
 import 'package:groovvee/views/utils/fonctions.dart';
 import 'package:groovvee/views/utils/theme.dart';
+
+import 'controller/initialise.dart';
 
 void main()async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,13 +36,19 @@ class AppFrame extends ConsumerWidget {
 
    // updater.checkForUpdate();
 
-   final appThemeMode =
-   ref.watch(isDarkTheme);
+   // final appThemeMode =
+   // ref.watch(isDarkTheme);
 
+    final appThemeMode = ref.watch(settingsModel.select((value) => value.themeMode));
+    //final appThemeMode = ref.watch(settingsProvider.select((value) => value.themeMode));
 
-    //final appLocale = ref.watch(
-     // settingsViewModel.select((state) => state.locale),
-    //);
+   //final appLocale=ref.watch(settingsProvider.select((value) => value.locale));
+
+   final appLocale=ref.watch(settingsModel.select((value) => value.locale));
+
+    // final appLocale = ref.watch(
+    //   settingsViewModel.select((state) => state.locale),
+    // );
 
    
    // SettingState settingState=SettingState(themeMode: themeMode, locale: locale)
@@ -48,9 +57,9 @@ class AppFrame extends ConsumerWidget {
      //localizationsDelegates: AppLocalizations.localizationsDelegates,
      debugShowCheckedModeBanner: false,
      routerConfig: appRouter,
-     //themeMode: appThemeMode,
+     themeMode: appThemeMode,
      darkTheme: darkTheme,
-     //locale: appLocale,
+     locale: appLocale,
      theme: lightTheme,
      title: appTitle,
    );
@@ -122,13 +131,14 @@ class _MyHomePageState extends State<MyHomePage> {
     //
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
+    // than having to individually change instances of appwidgets.
     return Scaffold(
       body: SafeArea(
         child:Stack(
           children: [
             SvgPicture.asset(
-              AppAssetsImages.appBackground,
+              AppAssetsImages
+                  .appBackground,
               fit: BoxFit.cover,
               color: Colors.yellow,
               height: double.maxFinite,

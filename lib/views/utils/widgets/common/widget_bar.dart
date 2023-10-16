@@ -1,54 +1,52 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:groovvee/views/appwidgets/common/clickable.dart';
+import 'package:groovvee/views/appwidgets/common/svg_button.dart';
 import 'package:groovvee/views/core/extensions.dart';
 import 'package:groovvee/views/screen/music/vip_music.dart';
 import 'package:groovvee/views/screen/profile/profile_screen.dart';
 import 'package:groovvee/views/utils/app_color.dart';
 import 'package:groovvee/views/utils/app_const.dart';
 import 'package:groovvee/views/utils/app_widget.dart';
-import 'package:groovvee/views/utils/fonctions.dart';
-import 'package:groovvee/views/utils/widgets/appHomeCard.dart';
-import 'package:groovvee/views/utils/widgets/common/buttons.dart';
 import 'package:groovvee/views/utils/widgets/common/dark_mode_switch.dart';
+
 
 import '../../../screen/profile/settings_screen.dart';
 
-
 class Header extends StatelessWidget {
-  const Header({required this.title,
-  this.icon=Icons.volume_down,this.icons=Icons.queue_music,
-  this.row=false, super.key});
+  const Header(
+      {required this.title,
+      this.icon = Icons.volume_down,
+      this.icons = Icons.queue_music,
+      this.row = false,
+      super.key});
 
-final String title;
-final bool row;
-final IconData icon,icons;
+  final String title;
+  final bool row;
+  final IconData icon, icons;
 
-@override
-Widget build(BuildContext context) {
-  return SizedBox(
-    height: 83,
-    child: Stack(
-      alignment: Alignment.centerLeft,
-      children: [
-        if (context.canPop())
-          SvgButton(
-            onTap:() =>context.pop,
-            asset: AppAssetsImages.backArrow,
-
-            filterColour:
-            !context.isInDarkMode
-                ?
-            AppColor.webOrange
-               :
-            AppColor.raisinBlack,
-            height: context.dx(40.0),
-            width: context.dx(40.0),
-          ),
-        Center(
-          child:
-              row?
-                  Row(
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 83,
+      child: Stack(
+        alignment: Alignment.centerLeft,
+        children: [
+          if (context.canPop())
+            SvgButton(
+              onTap: () => context.pop(),
+              asset: AppAssetsImages.backArrow,
+              filterColour: !context.isInDarkMode
+                  ? AppColor.webOrange
+                  : AppColor.raisinBlack,
+              height: context.dx(40.0),
+              width: context.dx(40.0),
+            ),
+          Center(
+            child: row
+                ? Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
@@ -59,33 +57,36 @@ Widget build(BuildContext context) {
                           fontSize: 20.0,
                         ),
                       ),
-                      Icon(icon,
-                      color: context.isInDarkMode?
-                        AppColor.white:
-                        AppColor.raisinBlack,)
-                      ],
-                  ):
-          Text(
-            title,
-            style: const TextStyle(
-              fontWeight: FontWeight.w600,
-              fontSize: 20.0,
-            ),
+                      Icon(
+                        icon,
+                        color: context.isInDarkMode
+                            ? AppColor.white
+                            : AppColor.raisinBlack,
+                      )
+                    ],
+                  )
+                : Text(
+                    title,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 20.0,
+                    ),
+                  ),
           ),
-        ),
-        if(row)
-        Positioned(
-          right: 10,
-            child: Icon(icons,
-              color: context.isInDarkMode?
-              AppColor.white:
-              AppColor.raisinBlack,))
-      ],
-    ),
-  );
+          if (row)
+            Positioned(
+                right: 10,
+                child: Icon(
+                  icons,
+                  color: context.isInDarkMode
+                      ? AppColor.white
+                      : AppColor.raisinBlack,
+                ))
+        ],
+      ),
+    );
+  }
 }
-}
-
 
 class HomeTab extends StatelessWidget {
   const HomeTab({Key? key}) : super(key: key);
@@ -100,9 +101,8 @@ class HomeTab extends StatelessWidget {
       child: Row(
         children: [
           (context.isInDarkMode
-            ? AppAssetsImages.bannerDark
-              :
-          AppAssetsImages.banner)
+                  ? AppAssetsImages.bannerDark
+                  : AppAssetsImages.banner)
               .svg(
             height: context.dy(38.0),
             width: context.dx(114.0),
@@ -110,15 +110,13 @@ class HomeTab extends StatelessWidget {
           const Spacer(),
           const Space.horizontal(12.0),
           Clickable(
-            onClick:() => context.pushNamed(VipMusic.routeName),
-            child:
-            (context.isInDarkMode
-                ?  AppAssetsImages.liveDark
-                :
-            AppAssetsImages.live)
+            onClick: () => context.pushNamed(VipMusic.routeName),
+            child: (context.isInDarkMode
+                    ? AppAssetsImages.liveDark
+                    : AppAssetsImages.live)
                 .image(
               height: 24.0,
-            width: 24.0,
+              width: 24.0,
             ),
           ),
           const Space.horizontal(12.0),
@@ -130,10 +128,10 @@ class HomeTab extends StatelessWidget {
           ),
           const Space.horizontal(12.0),
           SvgButton(
-            onTap: () =>context.pushNamed(ProfileScreen.routeName),
+            onTap: () => context.pushNamed(ProfileScreen.routeName),
             asset: AppAssetsImages.profile,
             height: 24.0,
-            width:24.0,
+            width: 24.0,
           ),
           const Space.horizontal(12.0),
           SvgButton(
@@ -148,22 +146,17 @@ class HomeTab extends StatelessWidget {
   }
 }
 
-
-
-
-final shadow=[
-
-    BoxShadow(
-        color: AppColor.greyOpac.withOpacity(0.2),
-        offset: const Offset(2, 2),
-        spreadRadius: 1.0,
-        blurRadius: 1.5),
-    BoxShadow(
-        color: Colors.grey.withOpacity(0.2),
-        offset: const Offset(-2, -2),
-        spreadRadius: 1.0,
-        blurRadius: 1.5),
-
+final shadow = [
+  BoxShadow(
+      color: AppColor.greyOpac.withOpacity(0.2),
+      offset: const Offset(2, 2),
+      spreadRadius: 1.0,
+      blurRadius: 1.5),
+  BoxShadow(
+      color: Colors.grey.withOpacity(0.2),
+      offset: const Offset(-2, -2),
+      spreadRadius: 1.0,
+      blurRadius: 1.5),
 ];
 
 /*
@@ -200,8 +193,6 @@ class AuthTopBar extends ConsumerWidget {
 }
 */
 
-
-
 class AuthTopBar extends ConsumerWidget {
   const AuthTopBar({super.key});
 
@@ -212,21 +203,21 @@ class AuthTopBar extends ConsumerWidget {
       children: [
         context.canPop()
             ? IconButton(
-          icon: Icon(
-            Icons.arrow_back,
-            size: context.dx(32.0),
-            color: context.isInDarkMode
-                ? AppColor.webOrange
-                : AppColor.raisinBlack,
-          ),
-          visualDensity: const VisualDensity(
-            horizontal: VisualDensity.minimumDensity,
-            vertical: VisualDensity.minimumDensity,
-          ),
-          tooltip: AppString.back,
-          padding: EdgeInsets.zero,
-          onPressed: context.pop,
-        )
+                icon: Icon(
+                  Icons.arrow_back,
+                  size: context.dx(32.0),
+                  color: context.isInDarkMode
+                      ? AppColor.webOrange
+                      : AppColor.raisinBlack,
+                ),
+                visualDensity: const VisualDensity(
+                  horizontal: VisualDensity.minimumDensity,
+                  vertical: VisualDensity.minimumDensity,
+                ),
+                tooltip: AppString.back,
+                padding: EdgeInsets.zero,
+                onPressed: context.pop,
+              )
             : const SizedBox.shrink(),
         const DarkModeSwitch(),
       ],

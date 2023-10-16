@@ -3,6 +3,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:groovvee/models/view_model/auth/auth_view_model.dart';
+import 'package:groovvee/views/appwidgets/common/app_scaffold.dart';
 import 'package:groovvee/views/core/extensions.dart';
 import 'package:groovvee/views/utils/app_color.dart';
 import 'package:groovvee/views/utils/app_const.dart';
@@ -11,7 +13,7 @@ import 'package:groovvee/views/utils/widgets/settings.dart';
 
 import '../../../constantes.dart';
 import '../../utils/app_widget.dart';
-import '../../utils/widgets/common/app_scaffold.dart';
+
 import '../../utils/widgets/common/dark_mode_switch.dart';
 
 class SettingsScreen extends ConsumerWidget {
@@ -23,7 +25,7 @@ class SettingsScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
 
 
-    //final user = ref.watch(authViewModel.select((state) => state.currentUser));
+    final user = ref.watch(authProvider.select((state) => state.currentUser));
 
     final headingStyle = context.textStyle(
       fontWeight: FontWeight.w600,
@@ -76,8 +78,7 @@ class SettingsScreen extends ConsumerWidget {
               ),
               const Space.vertical(20.0),
               Text(
-                //'${user.firstName} ${user.lastName}',
-                '${"Jane"} ${"Cooper"}',
+                '${user.firstName} ${user.lastName}',
                 style: context.textStyle(
                   fontWeight: FontWeight.w600,
                   fontSize: 16.0,

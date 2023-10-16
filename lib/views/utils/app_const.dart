@@ -1,4 +1,6 @@
+import 'package:groovvee/gen/assets.gen.dart';
 import 'package:groovvee/views/utils/app_widget.dart';
+
 
 class AppAssetsImages
 {
@@ -266,6 +268,11 @@ class AppString
   static String  notifications= "Notifications";
   static String  goToSettings= "Go To Settings";
   static String  enterOtpHere= "Enter OTP here";
+  static String  addOtpHere= "Add OTP here";
+  static String  enternameEmail= "Enter Username or Email";
+  static String  enterVerification= "Enter Verification Code";
+  static String  procedPhoneNumber= "Proceed phone number verification";
+  static String  resend_in= "Resend in ";
   static String  emailAddress= "Email Address";
   static String  verification= "Verification";
   static String  uploadVideo= "Upload video";
@@ -283,6 +290,7 @@ class AppString
   static String  profile= "Profile";
   static String signIn= "Sign In";
   static String  signUp="Sign Up";
+  static String  login="Login";
   static String  resend= "Resend";
   static String  submit= "Submit";
   static String  suscribe= "Subscribe";
@@ -290,6 +298,8 @@ class AppString
   static String  back= "Back";
   static String  hi= "Hi";
   static String  recommandation= "Recommendation";
+  static String  or= "OR";
+  static String  socialSign= "Sign Up With Social Media";
   static String  whyvip= "Why VIP? There are exclusive benefits";
 
   static List<String> exclusive_list=[unlimited,prenium,no_adds,earn_points];
@@ -305,3 +315,4 @@ class FontFamily {
   /// Font family: Poppins
   static const String poppins = 'Poppins';
 }
+

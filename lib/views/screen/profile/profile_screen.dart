@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:groovvee/constantes.dart';
+import 'package:groovvee/views/appwidgets/common/app_scaffold.dart';
+import 'package:groovvee/views/appwidgets/common/big_button.dart';
 import 'package:groovvee/views/core/extensions.dart';
 import 'package:groovvee/views/screen/profile/settings_screen.dart';
 import 'package:groovvee/views/utils/app_color.dart';
@@ -13,7 +15,6 @@ import 'package:groovvee/views/utils/widgets/app_textstyles.dart';
 import 'package:groovvee/views/utils/widgets/common/buttons.dart';
 import 'package:groovvee/views/utils/widgets/common/widget_bar.dart';
 
-import '../../utils/widgets/common/app_scaffold.dart';
 
 class ProfileScreen extends ConsumerWidget {
   const ProfileScreen({super.key});

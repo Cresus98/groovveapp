@@ -3,7 +3,6 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-/*
 part of 'auth_view_model.dart';
 
 // **************************************************************************
@@ -24,6 +23,7 @@ mixin _$AuthState {
   bool get isResendingCode => throw _privateConstructorUsedError;
   bool get isResettingPassword => throw _privateConstructorUsedError;
   List<Country> get countries => throw _privateConstructorUsedError;
+  List<Country> get countrieschose => throw _privateConstructorUsedError;
   AppUser get currentUser => throw _privateConstructorUsedError;
   String get emailAddress => throw _privateConstructorUsedError;
   String get countryCode => throw _privateConstructorUsedError;
@@ -52,6 +52,7 @@ abstract class $AuthStateCopyWith<$Res> {
       bool isResendingCode,
       bool isResettingPassword,
       List<Country> countries,
+      List<Country> countrieschose,
       AppUser currentUser,
       String emailAddress,
       String countryCode,
@@ -85,6 +86,7 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
     Object? isResendingCode = null,
     Object? isResettingPassword = null,
     Object? countries = null,
+    Object? countrieschose = null,
     Object? currentUser = null,
     Object? emailAddress = null,
     Object? countryCode = null,
@@ -123,6 +125,10 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
       countries: null == countries
           ? _value.countries
           : countries // ignore: cast_nullable_to_non_nullable
+              as List<Country>,
+      countrieschose: null == countrieschose
+          ? _value.countrieschose
+          : countrieschose // ignore: cast_nullable_to_non_nullable
               as List<Country>,
       currentUser: null == currentUser
           ? _value.currentUser
@@ -187,6 +193,7 @@ abstract class _$$_AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
       bool isResendingCode,
       bool isResettingPassword,
       List<Country> countries,
+      List<Country> countrieschose,
       AppUser currentUser,
       String emailAddress,
       String countryCode,
@@ -219,6 +226,7 @@ class __$$_AuthStateCopyWithImpl<$Res>
     Object? isResendingCode = null,
     Object? isResettingPassword = null,
     Object? countries = null,
+    Object? countrieschose = null,
     Object? currentUser = null,
     Object? emailAddress = null,
     Object? countryCode = null,
@@ -257,6 +265,10 @@ class __$$_AuthStateCopyWithImpl<$Res>
       countries: null == countries
           ? _value._countries
           : countries // ignore: cast_nullable_to_non_nullable
+              as List<Country>,
+      countrieschose: null == countrieschose
+          ? _value._countrieschose
+          : countrieschose // ignore: cast_nullable_to_non_nullable
               as List<Country>,
       currentUser: null == currentUser
           ? _value.currentUser
@@ -309,6 +321,7 @@ class _$_AuthState implements _AuthState {
       required this.isResendingCode,
       required this.isResettingPassword,
       required final List<Country> countries,
+      required final List<Country> countrieschose,
       required this.currentUser,
       required this.emailAddress,
       required this.countryCode,
@@ -318,7 +331,8 @@ class _$_AuthState implements _AuthState {
       required this.otpCode,
       required this.token,
       required this.timeLeft})
-      : _countries = countries;
+      : _countries = countries,
+        _countrieschose = countrieschose;
 
   @override
   final bool isSigningIn;
@@ -338,6 +352,14 @@ class _$_AuthState implements _AuthState {
     if (_countries is EqualUnmodifiableListView) return _countries;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_countries);
+  }
+
+  final List<Country> _countrieschose;
+  @override
+  List<Country> get countrieschose {
+    if (_countrieschose is EqualUnmodifiableListView) return _countrieschose;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_countrieschose);
   }
 
   @override
@@ -361,7 +383,7 @@ class _$_AuthState implements _AuthState {
 
   @override
   String toString() {
-    return 'AuthState(isSigningIn: $isSigningIn, isSigningUp: $isSigningUp, isSigningOut: $isSigningOut, isVerifyingCode: $isVerifyingCode, isResendingCode: $isResendingCode, isResettingPassword: $isResettingPassword, countries: $countries, currentUser: $currentUser, emailAddress: $emailAddress, countryCode: $countryCode, firstName: $firstName, lastName: $lastName, password: $password, otpCode: $otpCode, token: $token, timeLeft: $timeLeft)';
+    return 'AuthState(isSigningIn: $isSigningIn, isSigningUp: $isSigningUp, isSigningOut: $isSigningOut, isVerifyingCode: $isVerifyingCode, isResendingCode: $isResendingCode, isResettingPassword: $isResettingPassword, countries: $countries, countrieschose: $countrieschose, currentUser: $currentUser, emailAddress: $emailAddress, countryCode: $countryCode, firstName: $firstName, lastName: $lastName, password: $password, otpCode: $otpCode, token: $token, timeLeft: $timeLeft)';
   }
 
   @override
@@ -383,6 +405,8 @@ class _$_AuthState implements _AuthState {
                 other.isResettingPassword == isResettingPassword) &&
             const DeepCollectionEquality()
                 .equals(other._countries, _countries) &&
+            const DeepCollectionEquality()
+                .equals(other._countrieschose, _countrieschose) &&
             (identical(other.currentUser, currentUser) ||
                 other.currentUser == currentUser) &&
             (identical(other.emailAddress, emailAddress) ||
@@ -411,6 +435,7 @@ class _$_AuthState implements _AuthState {
       isResendingCode,
       isResettingPassword,
       const DeepCollectionEquality().hash(_countries),
+      const DeepCollectionEquality().hash(_countrieschose),
       currentUser,
       emailAddress,
       countryCode,
@@ -437,6 +462,7 @@ abstract class _AuthState implements AuthState {
       required final bool isResendingCode,
       required final bool isResettingPassword,
       required final List<Country> countries,
+      required final List<Country> countrieschose,
       required final AppUser currentUser,
       required final String emailAddress,
       required final String countryCode,
@@ -462,6 +488,8 @@ abstract class _AuthState implements AuthState {
   @override
   List<Country> get countries;
   @override
+  List<Country> get countrieschose;
+  @override
   AppUser get currentUser;
   @override
   String get emailAddress;
@@ -484,4 +512,3 @@ abstract class _AuthState implements AuthState {
   _$$_AuthStateCopyWith<_$_AuthState> get copyWith =>
       throw _privateConstructorUsedError;
 }
-*/

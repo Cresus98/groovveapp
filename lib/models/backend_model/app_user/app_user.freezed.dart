@@ -1,4 +1,3 @@
-/*
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -261,6 +260,3 @@ abstract class _AppUser implements AppUser {
   _$$_AppUserCopyWith<_$_AppUser> get copyWith =>
       throw _privateConstructorUsedError;
 }
-
-
- */

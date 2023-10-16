@@ -4,6 +4,11 @@
     <color name="primarySwatch" type="material">#FAA500</color>
     <color name="sonicSilver">#79797B</color>
     <color name="raisinBlack">#252525</color>
+    <color name="silverFormField">#9A9A9A</color>
     <color name="webOrange">#FAA500</color>
+    <color name="webGreen">#00BC13</color>
+    <color name="webBlack">#000000</color>
+    <color name="webYellow">#FFD600</color>
+    <color name="webwhite">#FFFFFF</color>
 
 </resources>

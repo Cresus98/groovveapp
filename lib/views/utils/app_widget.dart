@@ -114,6 +114,7 @@ Widget build(BuildContext context) {
 */
 
 
+/*
 /// AssetImage
 class AssetGenImage {
   const AssetGenImage(this._assetName);
@@ -245,6 +246,7 @@ class SvgGenImage {
   String get keyName => _assetName;
 }
 
+*/
 
 
 class ImagesListe extends StatelessWidget {
@@ -386,7 +388,7 @@ class Space extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: height != null ? height! : null,
-      width: width != null ? width : null,
+      width: width ?? null,
     );
   }
 }

@@ -1,12 +1,11 @@
-/*
 import 'package:freezed_annotation/freezed_annotation.dart';
-
-import '../user/app_user.dart';
+import 'package:groovvee/models/backend_model/app_user/app_user.dart';
 
 part 'api_response.freezed.dart';
 part 'api_response.g.dart';
 
 @freezed
+
 class ApiResponse with _$ApiResponse {
   const factory ApiResponse({
     @Default({}) Map<String, dynamic> error,
@@ -21,5 +20,3 @@ class ApiResponse with _$ApiResponse {
   factory ApiResponse.fromJson(Map<String, dynamic> json) =>
       _$ApiResponseFromJson(json);
 }
-
-*/

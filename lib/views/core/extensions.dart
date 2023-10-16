@@ -2,9 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:intl/intl.dart';
 
-import '../../l10n/app_localizations.dart';
+import 'package:intl/intl.dart';
 import 'constants.dart';
 
 
@@ -26,7 +25,8 @@ extension BuildContextPlus on BuildContext {
   }
 
   Brightness get reverseBrightness =>
-      isInDarkMode ? Brightness.light : Brightness.dark;
+      isInDarkMode ? Brightness.light
+          : Brightness.dark;
 
   FocusScopeNode get currentFocus => FocusScope.of(this);
 
@@ -69,6 +69,7 @@ extension BuildContextPlus on BuildContext {
 extension DurationPlus on Duration {
   Future<bool> get delay => Future.delayed(this, () => true);
   Future<void> schedule(VoidCallback task) => Future.delayed(this, task);
+
 }
 
 extension DateTimePlus on DateTime {
