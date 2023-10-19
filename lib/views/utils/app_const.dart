@@ -268,10 +268,12 @@ class AppString
   static String  notifications= "Notifications";
   static String  goToSettings= "Go To Settings";
   static String  enterOtpHere= "Enter OTP here";
+  static String  OtpVerify= "OTP Verification";
   static String  addOtpHere= "Add OTP here";
   static String  enternameEmail= "Enter Username or Email";
   static String  enterVerification= "Enter Verification Code";
-  static String  procedPhoneNumber= "Proceed phone number verification";
+  static String  procedPhoneNumber= "Procceed phone number\n verification";
+  static String  procedMail= "Procceed mail verification";
   static String  resend_in= "Resend in ";
   static String  emailAddress= "Email Address";
   static String  verification= "Verification";
@@ -297,6 +299,11 @@ class AppString
   static String verify= "Verify";
   static String  back= "Back";
   static String  hi= "Hi";
+  static String  some= "Choose some  ";
+  static String  music= "music ";
+  static String  movies= "movies ";
+  static String  blog= "blog ";
+  static String  categ_interrest= " categories you’re interested in";
   static String  recommandation= "Recommendation";
   static String  or= "OR";
   static String  socialSign= "Sign Up With Social Media";

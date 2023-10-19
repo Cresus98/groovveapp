@@ -121,16 +121,19 @@ class HomeCard extends StatelessWidget {
 
 class ModelCardOne extends StatelessWidget {
   const ModelCardOne({Key? key, required this.title,
-    required this.subtitle,this.stacking=true})
+    required this.subtitle,
+    this.width=200,
+    this.stacking=true})
       : super(key: key);
   final String title, subtitle;
   final bool stacking;
+  final double? width;
 
   @override
   Widget build(BuildContext context) {
     return  Container(
       margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 8),
-      width: 200,
+      width: width,
       decoration:
       BoxDecoration(borderRadius: BorderRadius.circular(3),
           boxShadow: shadow

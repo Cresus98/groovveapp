@@ -190,6 +190,15 @@ class $AssetsGraphicsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/bar2.jpg
+  AssetGenImage get bar2 => const AssetGenImage('assets/images/bar2.jpg');
+
+  /// File path: assets/images/bar3.jpg
+  AssetGenImage get bar3 => const AssetGenImage('assets/images/bar3.jpg');
+
+  /// File path: assets/images/bar4.jpg
+  AssetGenImage get bar4 => const AssetGenImage('assets/images/bar4.jpg');
+
   /// File path: assets/images/icon.png
   AssetGenImage get icon => const AssetGenImage('assets/images/icon.png');
 
@@ -213,8 +222,70 @@ class $AssetsImagesGen {
       const AssetGenImage('assets/images/splash_logo_dark.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [icon, live, liveDark, sampleProfilePicture, splashLogo, splashLogoDark];
+  List<AssetGenImage> get values => [
+        bar2,
+        bar3,
+        bar4,
+        icon,
+        live,
+        liveDark,
+        sampleProfilePicture,
+        splashLogo,
+        splashLogoDark
+      ];
+}
+
+class $AssetsSvgsboutonsGen {
+  const $AssetsSvgsboutonsGen();
+
+  /// File path: assets/svgsboutons/avatar_women.svg
+  SvgGenImage get avatarWomen =>
+      const SvgGenImage('assets/svgsboutons/avatar_women.svg');
+
+  /// File path: assets/svgsboutons/bar2.svg
+  SvgGenImage get bar2 => const SvgGenImage('assets/svgsboutons/bar2.svg');
+
+  /// File path: assets/svgsboutons/bar3.svg
+  SvgGenImage get bar3 => const SvgGenImage('assets/svgsboutons/bar3.svg');
+
+  /// File path: assets/svgsboutons/bar4.svg
+  SvgGenImage get bar4 => const SvgGenImage('assets/svgsboutons/bar4.svg');
+
+  /// File path: assets/svgsboutons/msg_open.svg
+  SvgGenImage get msgOpen =>
+      const SvgGenImage('assets/svgsboutons/msg_open.svg');
+
+  /// File path: assets/svgsboutons/optboutton.svg
+  SvgGenImage get optboutton =>
+      const SvgGenImage('assets/svgsboutons/optboutton.svg');
+
+  /// File path: assets/svgsboutons/phone_light.svg
+  SvgGenImage get phoneLight =>
+      const SvgGenImage('assets/svgsboutons/phone_light.svg');
+
+  /// File path: assets/svgsboutons/phone_lock.svg
+  SvgGenImage get phoneLock =>
+      const SvgGenImage('assets/svgsboutons/phone_lock.svg');
+
+  /// File path: assets/svgsboutons/timer.svg
+  SvgGenImage get timer => const SvgGenImage('assets/svgsboutons/timer.svg');
+
+  /// File path: assets/svgsboutons/vector.svg
+  SvgGenImage get vector => const SvgGenImage('assets/svgsboutons/vector.svg');
+
+  /// List of all assets
+  List<SvgGenImage> get values => [
+        avatarWomen,
+        bar2,
+        bar3,
+        bar4,
+        msgOpen,
+        optboutton,
+        phoneLight,
+        phoneLock,
+        timer,
+        vector
+      ];
 }
 
 class Assets {
@@ -223,6 +294,7 @@ class Assets {
   static const $AssetsGoogleFontsGen googleFonts = $AssetsGoogleFontsGen();
   static const $AssetsGraphicsGen graphics = $AssetsGraphicsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
+  static const $AssetsSvgsboutonsGen svgsboutons = $AssetsSvgsboutonsGen();
 }
 
 class AssetGenImage {

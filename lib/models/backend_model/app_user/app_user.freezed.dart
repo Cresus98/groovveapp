@@ -162,9 +162,9 @@ class __$$_AppUserCopyWithImpl<$Res>
 class _$_AppUser implements _AppUser {
   const _$_AppUser(
       {this.pictureUrl = 'assets/images/sample_profile_picture.png',
-      this.emailAddress = 'janecooper@gmail.com',
-      this.lastName = 'Cooper',
-      this.firstName = 'Jane',
+      this.emailAddress = 'attamahcelestine@gmail.com',
+      this.lastName = 'Attamah',
+      this.firstName = 'Celestine',
       this.accountId = '#JC',
       this.country = 'NG'});
 

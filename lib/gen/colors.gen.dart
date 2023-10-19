@@ -58,8 +58,14 @@ class ColorName {
   /// Color: #FAA500
   static const Color webOrange = Color(0xFFFAA500);
 
+  /// Color: #FAA600
+  static const Color webOrange2 = Color(0xFFFAA600);
+
   /// Color: #FFD600
   static const Color webYellow = Color(0xFFFFD600);
+
+  /// Color: #79797B
+  static const Color weboptcolor = Color(0xFF79797B);
 
   /// Color: #FFFFFF
   static const Color webwhite = Color(0xFFFFFFFF);

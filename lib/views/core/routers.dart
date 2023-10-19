@@ -1,4 +1,6 @@
 import 'package:go_router/go_router.dart';
+import 'package:groovvee/views/screen/auth/enter_verification_code.dart';
+import 'package:groovvee/views/screen/auth/opt_verification.dart';
 import 'package:groovvee/views/screen/auth/sign_in.dart';
 import 'package:groovvee/views/screen/auth/sign_up.dart';
 import 'package:groovvee/views/screen/auth/verification.dart';
@@ -39,6 +41,16 @@ final appRouter = GoRouter(
       builder: (_, __) => const VerificationScreen(),
       path: '/${VerificationScreen.routeName}',
       name: VerificationScreen.routeName,
+    ),
+    GoRoute(
+      builder: (_, __) => const OtpVerification(),
+      path: '/${OtpVerification.routeName}',
+      name: OtpVerification.routeName,
+    ),
+    GoRoute(
+      builder: (_, __) => const EnterVerificationCode(),
+      path: '/${EnterVerificationCode.routeName}',
+      name: EnterVerificationCode.routeName,
     ),
     GoRoute(
       builder: (_, __) => const HomePage(),

@@ -193,6 +193,7 @@ class AuthTopBar extends ConsumerWidget {
 }
 */
 
+
 class AuthTopBar extends ConsumerWidget {
   const AuthTopBar({super.key});
 
@@ -224,3 +225,43 @@ class AuthTopBar extends ConsumerWidget {
     );
   }
 }
+
+
+
+class AuthTopBarSecond extends ConsumerWidget {
+  const AuthTopBarSecond ({super.key,required this.title});
+
+  final String title;
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+
+             IconButton(
+          icon: Icon(
+            Icons.arrow_back,
+            size: context.dx(32.0),
+            color: context.isInDarkMode
+                ? AppColor.webOrange
+                : AppColor.raisinBlack,
+          ),
+          visualDensity: const VisualDensity(
+            horizontal: VisualDensity.minimumDensity,
+            vertical: VisualDensity.minimumDensity,
+          ),
+          tooltip: AppString.back,
+          padding: EdgeInsets.zero,
+          onPressed: context.pop,
+        )
+           ,
+        Text(title,style: context.textStyle(
+          fontSize:19 ,
+          fontWeight: FontWeight.w600
+        ),),
+        const DarkModeSwitch(),
+      ],
+    );
+  }
+}
+

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:groovvee/gen/colors.gen.dart';
 import 'package:groovvee/views/appwidgets/common/app_scaffold.dart';
 import 'package:groovvee/views/appwidgets/common/big_button.dart';
 import 'package:groovvee/views/core/extensions.dart';
@@ -104,7 +105,7 @@ class _VerificationScreenState extends ConsumerState<VerificationScreen> {
                 style: context.textStyle(
                   fontWeight: FontWeight.w600,
                   fontSize: 13.0,
-                  colour: white,
+                  colour: ColorName.raisinBlack,
                 ),
               ),
               const Space.vertical(70.0),
@@ -117,7 +118,7 @@ class _VerificationScreenState extends ConsumerState<VerificationScreen> {
                     fontWeight: FontWeight.w600,
                     decoration: TextDecoration.underline,
                     fontSize: 12.0,
-                    colour: white,
+                    colour: ColorName.raisinBlack,
                   ),
                 ),
               ),
@@ -185,12 +186,14 @@ class _VerificationScreenState extends ConsumerState<VerificationScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-
                   SizedBox(
                     width: context.dx(108.0),
                     child:    Text(
                         AppString.resend_in,
-                      style: context.textStyle(colour: AppColor.white),
+                      style: context.textStyle(
+                        fontSize: 10,
+                          fontWeight: FontWeight.w500,
+                          colour: AppColor.white),
                     ),
                   ),
                   SizedBox(
@@ -206,9 +209,11 @@ class _VerificationScreenState extends ConsumerState<VerificationScreen> {
                   ),
                 ],
               ),
+               Space.vertical(context.dy(90)),
               Align(
                 child: Text(AppString.otpHasBeenSent,
-                style: context.textStyle(colour: AppColor.webblacktextfield),),
+                style: context.textStyle(
+                    colour: AppColor.webblacktextfield),),
               )
             ],
           ),

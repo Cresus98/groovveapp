@@ -111,6 +111,7 @@ flutter:
     - assets/google_fonts/
     - assets/graphics/
     - assets/images/
+    - assets/svgsboutons/
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
