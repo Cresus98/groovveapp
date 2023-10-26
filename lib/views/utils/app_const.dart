@@ -268,12 +268,10 @@ class AppString
   static String  notifications= "Notifications";
   static String  goToSettings= "Go To Settings";
   static String  enterOtpHere= "Enter OTP here";
-  static String  OtpVerify= "OTP Verification";
   static String  addOtpHere= "Add OTP here";
   static String  enternameEmail= "Enter Username or Email";
   static String  enterVerification= "Enter Verification Code";
-  static String  procedPhoneNumber= "Procceed phone number\n verification";
-  static String  procedMail= "Procceed mail verification";
+  static String  procedPhoneNumber= "Proceed phone number verification";
   static String  resend_in= "Resend in ";
   static String  emailAddress= "Email Address";
   static String  verification= "Verification";
@@ -299,15 +297,25 @@ class AppString
   static String verify= "Verify";
   static String  back= "Back";
   static String  hi= "Hi";
-  static String  some= "Choose some  ";
-  static String  music= "music ";
-  static String  movies= "movies ";
-  static String  blog= "blog ";
-  static String  categ_interrest= " categories you’re interested in";
   static String  recommandation= "Recommendation";
   static String  or= "OR";
   static String  socialSign= "Sign Up With Social Media";
   static String  whyvip= "Why VIP? There are exclusive benefits";
+  static String  OtpVerify= "Why VIP? There are exclusive benefits";
+  static String  categ_interrest= "Why VIP? There are exclusive benefits";
+  static String  procedMail= "Why VIP? There are exclusive benefits";
+  static String  blog= "Why VIP? There are exclusive benefits";
+  static String  paymentDetails= "Payment Details";
+  static String  creditCard= "Credit Card Number";
+  static String  expiry= "Expiry Date";
+  static String  cvv= "CVV";
+  static String  some= "Expiry Date";
+  static String  pref_plan= "Preferred Plan";
+  static String  pay_demd= "Pay On Demand";
+  static String  ad_free= "Ads Free";
+  static String  chg= "Change";
+  static String  cmplt_payment= "Complete Payment";
+
 
   static List<String> exclusive_list=[unlimited,prenium,no_adds,earn_points];
   static List<String> exclusive_content=[unlimited_content,

@@ -70,7 +70,7 @@ Widget build(BuildContext context,WidgetRef ref) {
       backgroundColor:
       context.isInDarkMode ?
       AppColor.raisinBlack
-          : AppColor.webOrange,
+              : AppColor.webOrange,
       floatingActionButtonLocation: floatingActionButtonLocation,
       resizeToAvoidBottomInset: shouldResize ?? false,
       floatingActionButton: floatingActionButton,

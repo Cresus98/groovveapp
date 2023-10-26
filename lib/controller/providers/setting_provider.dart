@@ -42,7 +42,7 @@ class Settings extends _$Settings
       //storage.setString(languageCodeKey, locale.languageCode);
     }
   }
-  
+
 }
 
 

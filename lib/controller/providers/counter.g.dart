@@ -36,7 +36,7 @@ final counterProvider = AutoDisposeNotifierProvider<Counter, int>(
   Counter.new,
   name: r'counterProvider',
   debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$CounterHash,
+  const bool.fromEnvironment('dart.vm.product') ? null : _$CounterHash,
 );
 typedef CounterRef = AutoDisposeNotifierProviderRef<int>;
 

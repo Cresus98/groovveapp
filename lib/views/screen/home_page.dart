@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:groovvee/controller/theme_manage.dart';
-import 'package:groovvee/gen/assets.gen.dart';
 import 'package:groovvee/views/appwidgets/common/app_scaffold.dart';
 import 'package:groovvee/views/appwidgets/common/clickable.dart';
 import 'package:groovvee/views/appwidgets/common/svg_button.dart';
@@ -44,13 +43,7 @@ class _HomePageState extends ConsumerState<HomePage> {
   }
 
 
-  final tabIcons = [
-    AppAssetsImages.home,
-    Assets.svgsboutons.bar2,
-    Assets.svgsboutons.bar3,
-    Assets.svgsboutons.bar4,
-  //  AppAssetsImages.movies
-  ];
+  final tabIcons = [AppAssetsImages.home, AppAssetsImages.movies];
   int tabIndex=0;
 
   @override
@@ -68,10 +61,6 @@ class _HomePageState extends ConsumerState<HomePage> {
         case 0:
           return const MusicHomePage();
         case 1:
-          return const MoviesScreen();
-        case 2:
-          return const MoviesScreen();
-        case 3:
           return const MoviesScreen();
         default:
           return Container();

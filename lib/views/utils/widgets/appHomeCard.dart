@@ -121,13 +121,11 @@ class HomeCard extends StatelessWidget {
 
 class ModelCardOne extends StatelessWidget {
   const ModelCardOne({Key? key, required this.title,
-    required this.subtitle,
-    this.width=200,
-    this.stacking=true})
+    required this.subtitle,this.stacking=true,this.width=200})
       : super(key: key);
   final String title, subtitle;
   final bool stacking;
-  final double? width;
+  final double width;
 
   @override
   Widget build(BuildContext context) {

@@ -11,7 +11,7 @@ import 'initialise.dart';
 final isDarkTheme=StateProvider<bool>((ref)
 {
 
- return interne_storage.read(getstorageColor) == null? false:
+  return interne_storage.read(getstorageColor) == null? false:
   jsonDecode(interne_storage.read(getstorageColor))==getblackColor?
   true:false;
 });

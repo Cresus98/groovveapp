@@ -35,7 +35,7 @@ class _OtpVerificationState extends ConsumerState<OtpVerification> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              AuthTopBarSecond(title: AppString.OtpVerify),
+              //AuthTopBarSecond(title: AppString.OtpVerify),
               Assets.svgsboutons.phoneLock.svg(
                 width: context.dx(150),
                 height: context.dy(290),

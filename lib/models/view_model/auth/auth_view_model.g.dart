@@ -29,7 +29,7 @@ class _SystemHash {
   }
 }
 
-String _$AuthHash() => r'951e9687cf4e158db54ce3b90242b1d2226f0e2e';
+String _$AuthHash() => r'da3ac057d9e656e653b51593445fee23bd81c0c4';
 
 /// See also [Auth].
 final authProvider = AutoDisposeNotifierProvider<Auth, AuthState>(

@@ -9,10 +9,9 @@ part of 'app_user.dart';
 _$_AppUser _$$_AppUserFromJson(Map<String, dynamic> json) => _$_AppUser(
       pictureUrl: json['pictureUrl'] as String? ??
           'assets/images/sample_profile_picture.png',
-      emailAddress:
-          json['emailAddress'] as String? ?? 'attamahcelestine@gmail.com',
-      lastName: json['lastName'] as String? ?? 'Attamah',
-      firstName: json['firstName'] as String? ?? 'Celestine',
+      emailAddress: json['emailAddress'] as String? ?? 'janecooper@gmail.com',
+      lastName: json['lastName'] as String? ?? 'Cooper',
+      firstName: json['firstName'] as String? ?? 'Jane',
       accountId: json['accountId'] as String? ?? '#JC',
       country: json['country'] as String? ?? 'NG',
     );

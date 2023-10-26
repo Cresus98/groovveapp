@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:groovvee/gen/colors.gen.dart';
 import 'package:groovvee/views/appwidgets/common/loading_gif.dart';
 import 'package:groovvee/views/core/extensions.dart';
 import 'package:groovvee/views/utils/app_color.dart';
@@ -73,17 +72,18 @@ class BigButton extends StatelessWidget {
   this.isBusy = false,
   this.circle=8,
   this.size=16.0,
-  this.color,
-  this.textStyle,
+  this.color=Colors.white,
   this.fixedSized,
-  this.borderSide=false,
+  this.textStyle,
   this.isWidgetNext=false,
+  this.widgetNext,
+  this.widgetPrevious,
   this.isWidgetPrevious=false,
-  this.widgetNext=const SizedBox(),
-  this.widgetPrevious=const SizedBox(),
+  this.borderSide=false,
+  this.textColor,this.backgroundClr,
   super.key,
-});
 
+});
 
 final VoidCallback onPressed;
 final String labelText;
@@ -91,15 +91,18 @@ final String labelText;
 final bool isEnabled;
 final bool isBusy;
 final double circle;
-final bool isWidgetNext;
-final bool isWidgetPrevious;
-final Widget widgetNext;
-final Widget widgetPrevious;
 final double size;
+final Color color;
+final Color ?backgroundClr;
+final Color? textColor;
 final Size ? fixedSized;
-final bool? borderSide;
-final Color ? color;
+final bool borderSide;
+final bool  isWidgetNext;
+final bool  isWidgetPrevious;
 final TextStyle ? textStyle;
+final Widget ? widgetNext;
+final Widget ? widgetPrevious;
+
 
 @override
 Widget build(BuildContext context) {
@@ -117,67 +120,52 @@ Widget build(BuildContext context) {
     onPressed: (isEnabled && !isBusy) ? onPressed : () {},
     style: ElevatedButton.styleFrom(
       fixedSize: fixedSized,
-      shape:!borderSide!?
-      RoundedRectangleBorder(
+      shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(circle),
-        side: BorderSide.none
-      ):
-      RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(circle),
-        side: const BorderSide(color: ColorName.raisinBlack,width: 1),
       ),
-      backgroundColor:color?? backgroundColour,
+      backgroundColor: backgroundClr?? backgroundColour,
       elevation: 0.0,
     ),
     child: Padding(
       padding:const  EdgeInsets.symmetric(vertical: 0),
-      child: Row(
+      child: isBusy?Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          if(isBusy)
-            LoadingGif(
-              colours: [foregroundColour],
-              height: context.dy(20.0),
-              width: context.dx(64.0),
+          isBusy
+              ? LoadingGif(
+            colours: [foregroundColour],
+            height: context.dy(20.0),
+            width: context.dx(64.0),
+          )
+              :
+          Text(
+            labelText,
+            style: AppTextStyles.textstyles_simple.
+            copyWith(
+                fontWeight: FontWeight.bold,
+                color: textColor?? foregroundColour,
+                fontSize: size
             ),
+          ),
+        ],
+      ):
+      Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
 
-          if(!isBusy && isWidgetPrevious)
-            widgetPrevious,
-          if(!isBusy)
-            Text(
-              labelText,
-              style: textStyle??
-                  AppTextStyles.textstyles_simple.
-                  copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: foregroundColour,
-                      fontSize: size
-                  ),
-
+          if(isWidgetPrevious)
+            widgetPrevious!,
+          Text(
+            labelText,
+            style: AppTextStyles.textstyles_simple.
+            copyWith(
+                fontWeight: FontWeight.bold,
+                color: color,
+                fontSize: size
             ),
-          if(!isBusy && isWidgetNext)
-            widgetNext,
-
-             // isBusy
-          //     ? LoadingGif(
-          //   colours: [foregroundColour],
-          //   height: context.dy(20.0),
-          //   width: context.dx(64.0),
-          // )
-          //     :
-          //
-          // Text(
-          //   labelText,
-          //   style: textStyle??
-          //       AppTextStyles.textstyles_simple.
-          //   copyWith(
-          //       fontWeight: FontWeight.bold,
-          //       color: foregroundColour,
-          //       fontSize: size
-          //   ),
-          //
-          // ),
-
+          ),
+          if(isWidgetNext)
+            widgetNext!,
         ],
       ),
     ),

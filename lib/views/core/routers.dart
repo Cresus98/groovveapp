@@ -1,4 +1,6 @@
 import 'package:go_router/go_router.dart';
+import 'package:groovvee/views/payment/payment_first.dart';
+import 'package:groovvee/views/payment/payment_second.dart';
 import 'package:groovvee/views/screen/auth/enter_verification_code.dart';
 import 'package:groovvee/views/screen/auth/opt_verification.dart';
 import 'package:groovvee/views/screen/auth/sign_in.dart';
@@ -53,9 +55,14 @@ final appRouter = GoRouter(
       name: EnterVerificationCode.routeName,
     ),
     GoRoute(
-      builder: (_, __) => const HomePage(),
-      path: '/${HomePage.routeName}',
-      name: HomePage.routeName,
+      builder: (_, __) => const PaymentFirst(),
+      path: '/${PaymentFirst.routeName}',
+      name: PaymentFirst.routeName,
+    ),
+    GoRoute(
+      builder: (_, __) => const PaymentSecond(),
+      path: '/${PaymentSecond.routeName}',
+      name: PaymentSecond.routeName,
     ),
     GoRoute(
       builder: (_, __) => const DashbaordScreen(),
